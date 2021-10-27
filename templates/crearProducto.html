@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear producto</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='asets_Productos/nuevoProducto/css/estilos.css')}}">
+    <script src="{{url_for('static', filename='asets_Productos/nuevoProducto/js/funciones.js')}}"></script>
+</head>
+
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__items">
+                <a href="/productos/" class="nav__link__volver">Volver</a>
+            </div>
+        </nav>
+
+        <section class="title">
+            <h1 class="hero__title container">CREAR PRODUCTO</h1>
+        </section>
+
+        <form class="form" method="POST" name="formularioCrearProd" onsubmit="return validarProducto();">
+
+            <div class="form__container">                
+                <section class="form__section__1">
+                    <span class="error" id="errorForm"></span> 
+                    <div class="form__div">
+                        <label for="id" class="form__label id">ID: </label>
+                        <input type="text" class="form__input" name="id" id="id" placeholder="Min 4 caracteres" onkeypress="return valideKey(event);">
+                        <span class="error " id="errorId"></span>
+                    </div>
+
+                    <div class="form__div">
+                        <label class="form__label nombre" for="nombre">Nombre: </label>
+                        <input type="text" class="form__input" name="nombre" id="nombre">
+                        <span class="error " id="errorNombre"></span>
+                    </div>
+
+                    <div class="form__div">
+                        <label class="form__label form__label__descripcion" for="descripcion">Descripcion: </label>
+                        <textarea class="form__input form__input__descripcion" name="descripcion" id="descripcion"></textarea>
+                        <span class="error " id="errorDescripcion"></span>
+                    </div>
+
+                    <div class="form__div">
+                        <label class="form__label proveedor" for="proveedor">Proveedor: </label>
+                        <select class="form__input form__input__proveedor" name="proveedor" id="proveedor">
+                            <optgroup label="Seleccionar...">
+                                <option></option>
+                            </optgroup>
+                        </select>
+                        <span class="error " id="errorProveedor"></span>
+                    </div>
+                </section>
+
+                <section class="form__section__2">
+                    <div class="form__div">
+                        <label class="form__label bodega" for="bodega">Cantidad en Bodega: </label>
+                        <input type="number" class="form__input" name="bodega" id="bodega">
+                        <span class="error " id="errorBodega"></span>
+                    </div>
+
+                    <div class="form__div">
+                        <label class="form__label minima" for="minima">Cantidad Disponible: </label>
+                        <input type="number" class="form__input" name="minima" id="minima">
+                        <span class="error " id="errorMinima"></span>
+                    </div>
+
+                    <div>
+                        <button type="submit" value="Crear" class="form__reg">CREAR</button>
+                    </div>
+                </section>
+            </div>
+        </form>
+    </header>
+</body>
+
+</html>

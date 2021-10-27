@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar producto</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='asets_Usuarios/lista/css/estilos.css')}}">
+</head>
+
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__items">
+                <a href="/usuarios/" class="nav__link__volver">Volver</a>
+            </div>
+        </nav>
+
+        <section class="title">
+            <h1 class="hero__title container">LISTA DE USUARIOS</h1>
+        </section>
+    </header>
+
+    <form class="form">
+
+        <div class="form__container">
+            <section class="form__section">
+                <div>
+                    <label class="form__label">Buscar por: </label>
+                    <select class="form__input form__input__buscar" name="buscar" id="buscar">
+                        <optgroup label="Seleccionar...">
+                            <option>Id</option>
+                            <option>Nombre</option>
+                            <option>Rol</option>
+
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="form__label" for="dato">Dato a buscar: </label>
+                    <input type="text" class="form__input" name="dato" id="dato">
+                </div>
+
+                <div>
+                    <button type="submit" class="form__reg">BUSCAR</button>
+                </div>
+            </section>
+        </div>
+    </form>
+
+    <main class="table">
+            <table class="table__container">
+
+                <thead class="table__title">
+                    <tr>
+                        <th class="items">ID</th>
+                        <th class="items">NOMBRE</th>
+                        <th class="items">ROL</th>
+                        <th class="items">DIRECCION</th>
+                        <th class="items">CELULAR</th>
+                        <th class="items">CORREO</th>
+                        <th>ACCIÓN</th>
+                    </tr>
+                </thead>
+
+                <tbody class="table__cont">
+                    <tr>
+                        <td class="items">100000000</td>
+                        <td class="items">José Alfredo Vargas</td>
+                        <td class="items">Administrador</td>
+                        <td class="items">CL 12 #11-10 Bogotá</td>
+                        <td class="items">3002223344</td>
+                        <td class="items">joseav@gmail.com
+                        </td>
+                        <td><a href="#" class="nav__link__borrar">BORRAR</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+    </main>
+</body>
+
+</html>

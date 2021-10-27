@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash Producto</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='asets_Productos/dashProducto/css/estilos.css')}}">
+</head>
+
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items ">
+                    <a href="" class="nav__link__white nav__producto">Productos</a>
+                </li>
+                <li class="nav__items">
+                    <a href="/indexProveedor/" class="nav__link__white">Proveedores</a>
+                </li>
+                <li class="nav__items">
+                    <a href="/usuarios/" class="nav__link__white">Usuarios</a>
+                </li>
+                <li class="nav__items">
+                    <a href="/miPerfil/" class="nav__link__white">Mi Perfiln</a>
+                </li>
+            </ul>
+
+            <div class="nav__logo">
+                <a href="/cerrarSesion/" class="nav__link__blue">Cerrar Sesión</a>
+            </div>
+        </nav>
+
+        <section class="title">
+            <h1 class="hero__title container">DASHBOARD PRODUCTO</h1>
+        </section>
+
+        <main>
+        <section class="container about">
+            <div class="about__main">
+                <article class="about__icons">
+                    <img src="{{url_for('static', filename='asets_Productos/dashProducto/img/lista.svg')}}" class="about__icon" alt="category" />
+                    <a href="/listaProductos/" class="nav__link__productos">Lista de productos</a>
+                </article>
+
+                <article class="about__icons">
+                    <img src="{{url_for('static', filename='asets_Productos/dashProducto/img/new.svg')}}" class="about__icon" alt="category" />
+                    <a href="/nuevoProducto/" class="nav__link__productos">Nuevo producto</a>
+                </article>
+
+                <article class="about__icons">
+                    <img src="{{url_for('static', filename='asets_Productos/dashProducto/img/search.png')}}" class="about__icon" alt="category" />
+                    <a href="/buscarProducto/" class="nav__link__productos">Buscar Producto</a>
+                </article>
+            </div>
+        </section>
+    </main>
+    </header>
+</body>
+
+</html>

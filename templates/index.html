@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='asets_index/css/estilos.css') }}">
+</head>
+
+<body>
+    <header class="hero">
+        <section class="title">
+            <h1 class="hero__title container">¿QUIEN ERES?</h1>
+        </section>
+
+        <main>
+        <section class="container about">
+            <div class="about__main">
+                <article class="about__icons">
+                    <img src="{{ url_for('static', filename='asets_index/img/empleado.svg') }}" class="about__icon" alt="category" />
+                    <a href="/loginEmpleado/" class="nav__link__opciones">EMPLEADO</a>
+                </article>
+
+                <article class="about__icons">
+                    <img src="{{ url_for('static', filename='asets_index/img/admin.svg') }}" class="about__icon" alt="category" />
+                    <a href="/loginAdmin/" class="nav__link__opciones">ADMINISTRADOR</a>
+                </article>
+            </div>
+        </section>
+    </main>
+    </header>
+</body>
+</html>

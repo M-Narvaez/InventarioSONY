@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    font-family: 'Montserrat', sans-serif;
+    min-width: 100vh;
+    width: 100%;
+}
+
+.hero{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: grid;
+    grid-template-rows: 70px 1fr;
+    color: #fff;
+}
+
+.hero__title{
+    font-size: 4rem;
+    margin-top: .5em;
+    color: #585858;
+    padding:  0;
+    align-content: center;
+    gap: 1em;
+    text-align: center;
+    width: fit-content;
+}
+
+.nav{
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav__link{
+    margin-left: auto;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 2em;
+}
+
+.nav__items{
+    list-style: none;
+}
+
+.nav__link__volver{
+    font-size: 16px;
+    color: #000;
+    border: none;
+    padding: .3em 2em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    border: 1px solid #bbb0b0;
+    text-decoration: none;
+}
+
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 50px 0;
+}
+
+.about{
+    text-align: center;
+    padding: 16px;
+    width: 70%;
+    height: 360px;
+    border: 2px solid #000;
+    border-radius: .7em;
+    overflow-y: scroll;
+    background-color: #f0f0f0;
+}
+
+.about__main{
+    display: grid;
+    width: 90%;
+    margin: 0 auto;
+    gap: 2em;
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fit, minmax(160px, auto));
+}
+
+article{
+    display: grid;
+    gap: 1em;
+    justify-items: center;
+    width: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+img{
+    width:90px;
+}
+
+h4{
+    color: #000;
+    font-weight: 400;
+}
+
+a{
+    font-size: 14px;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    font-weight: 400;
+    padding: .2em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #aaa8a8;
+    text-decoration: none;
+}
+
+.nav__link__volver:hover{
+    font-size: 18px;
+    background-color: #aaa8a8;
+    color: #fff;
+    font-weight: 700;
+    padding: .3em 1.5em;
+    border: 1px solid #fff;
+}
+
+.nav__link__volver:active{
+    font-size: 16px;
+    padding: .3em 1.4em;
+}
+
+.nav__link__white:hover{
+    background-color: #3fbbf0;
+    color: #fff;
+    font-weight: 700;
+    border: 1px solid #b9b9b9;
+}
+
+.nav__link__white:active{
+    font-size: 13.5px;
+    background-color: #3fbbf0;
+    color: #fff;
+    font-weight: 700;
+    border: 1px solid #cacaca;
+}

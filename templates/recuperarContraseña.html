@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang=es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'asets_Inicio/recuperarContraseña/css/estilos.css')}}">
+    <script src="{{url_for('static', filename='asets_Inicio/recuperarContraseña/js/funciones.js')}}"></script>
+</head>
+
+<body>
+    <form class="form" name="formularioRecuperarContraseña" method="POST" onsubmit="return validarRecuperar();">
+
+        <figure class="img__logo">
+            <img src="{{ url_for('static', filename= 'asets_Inicio/recuperarContraseña/img/recuperar.svg')}}" alt="Foto" class="img__img">
+        </figure>
+
+        <div class="form__container">
+
+            <div class="form__div__user">
+                <label for="correo" class="form__label">Ingresar Correo: </label>
+                <span class="error div" id="errorCorreo"></span>
+                <input type="email" class="form__input" name="correo" id="correo">
+            </div>
+
+            <div class="form__div__pass">
+                <label for="confirmar_correo">Confirmar correo: </label>
+                <span class="error div" id="errorCorreoConfirmar"></span> 
+                <input type="email" class="form__input" name="confirmar_correo" id="confirmar_correo">
+            </div>
+
+            <button type="submit" value="Enviar" class="form__cta">RECUPERAR</button>
+
+            <a href="/login/" class="form__reg cancelar">VOLVER</a>
+        </div>
+    </form>
+</body>
+
+</html>

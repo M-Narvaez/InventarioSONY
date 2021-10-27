@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista productos</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='asets_Productos/listaProductos/css/estilos.css')}}">
+    <script src="{{url_for('static', filename='asets_Productos/jsAjax/ajax.js')}}"></script>
+</head>
+<body  >
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__items">
+                <a href="/productos/" class="nav__link__volver">Volver</a>
+            </div>
+        </nav>
+
+        <section class="title">
+            <h1 class="hero__title container">LISTA DE PRODUCTOS</h1>
+        </section>
+
+        <main>
+            <section class="container about">
+                <div class="about__main"  id="divProductos">
+                </div>
+            </section>
+        </main>
+
+
+    </header>
+</body>
+</html>

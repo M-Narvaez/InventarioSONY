@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Proveedor</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='asets_Proveedores/buscar/css/estilos.css')}}">
+    <script src="{{url_for('static', filename='asets_Proveedores/buscar/js/funciones.js')}}"></script>
+</head>
+
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__items">
+                <a href="/indexProveedor/" class="nav__link__volver">Volver</a>
+            </div>
+        </nav>
+
+        <section class="title">
+            <h1 class="hero__title container">Buscar Proveedor</h1>
+        </section>
+
+    <form class="form" name="formularioBuscarProv" onsubmit="return validarBusqueda();" >
+        <span class="error" id="errorForm"></span> 
+        <div class="form__container">
+            <section class="form__section">
+                <div>
+                    <label for="nitBus" class="form__label">NIT: </label>
+                    <input type="text" class="form__input" name="nitBus" id="Nit"
+                    onkeypress="return valideKey(event);">
+                    <span class="error" id="errorNit"></span>
+                </div>
+
+                <div>
+                    <label class="form__label" for="razonSocial">Razón social:</label>
+                    <input type="text" class="form__input" name="razonSocial" id="RazonSocial">
+                    <span class="error" id="errorRazonSocial"></span>
+                </div>
+
+                <div>
+                    <button type="submit" class="form__reg">BUSCAR</button>
+                </div>
+            </section>
+        </div>
+    </form>
+
+    <main class="table">
+            <table class="table__container">
+
+                <thead class="table__title">
+                    <tr>
+                        <th class="items">Razón Social</th>
+                        <th class="items">Nit</th>
+                        <th class="items">Dirección</th>
+                        <th class="items">Teléfono</th>
+                        <th>ACCIÓN</th>
+                    </tr>
+                </thead>
+
+                <tbody class="table__cont">
+                    <tr>
+                        <td class="items">Alfreds Futterkiste</td>
+                        <td class="items">Maria Anders</td>
+                        <td class="items">Germany</td>
+                        <td class="items">9856525</td>
+                        <td><a href="/editarProveedorB/" class="nav__link__editar">Editar</a><a href="/buscarProveedor/" class="nav__link__borrar">Borrar</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+    </main>
+    </header>
+</body>
+
+</html>

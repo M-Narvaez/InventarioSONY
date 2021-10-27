@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Proveedores</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='asets_Proveedores/lista/css/estilos.css')}}">
+</head>
+
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__items">
+                <a href="/indexProveedor/" class="nav__link__volver">Volver</a>
+            </div>
+        </nav>
+
+        <section class="title">
+            <h1 class="hero__title container">LISTADO DE PROVEEDORES</h1>
+        </section>
+
+        <main class="table">
+            <table class="table__container">
+
+                <thead class="table__title">
+                    <tr>
+                        <th class="items">Razón Social</th>
+                        <th class="items">Nit</th>
+                        <th class="items">Dirección</th>
+                        <th class="items">Teléfono</th>
+                        <th>ACCIÓN</th>
+                    </tr>
+                </thead>
+
+                <tbody class="table__cont">
+                    <tr>
+                        <td class="items">Alfreds Futterkiste</td>
+                        <td class="items">Maria Anders</td>
+                        <td class="items">Germany</td>
+                        <td class="items">9856525</td>
+                        <td><a href="/editarProveedorL/" class="nav__link__editar">Editar</a><a href="/listaProveedores/" class="nav__link__borrar">Borrar</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+    </main>
+    </header>
+</body>
+
+</html>

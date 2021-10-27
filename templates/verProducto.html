@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang=es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar datos</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='asets_Productos/verProducto/css/estilos.css')}}">
+    <script src="{{url_for('static', filename='asets_Productos/jsAjax/ajaxVerProducto.js')}}"></script>
+</head>
+
+<body>
+    <section class="form">
+
+        <figure class="img__logo">
+            <img src="{{url_for('static', filename='asets_Productos/verProducto/img/smartphone.svg')}} " alt="Foto"
+                class="img__img">
+        </figure>
+
+        <p class="dato"><input type="number" value="{{dato["pos"]}}" id="posicion"> </p>
+
+        <main class="form__main">
+            <div class="form__container">
+
+                <div class="form__div">
+                    <label class="form__label id">ID: </label>
+                    <label class="form__input" id="divId"></label>
+                </div>
+
+                <div class="form__div">
+                        <label class="form__label nombre">Nombre: </label>
+                        <label class="form__input" id="divNombre"></label>
+                </div>
+
+                <div class="form__div" >
+                    <label class="form__label descripcion">Descripción: </label>
+                    <label class="form__input" id="divDescripcion"></label>
+
+                </div>
+
+                <div class="form__div">
+                    <label class="form__label proveedor">Proveedor: </label>
+                    <label class="form__input" id="divProveedor"></label>
+                </div>
+
+                <div class="form__div">
+                    <label class="form__label bodega">Cantidad en Bodega: </label>
+                    <label class="form__input" id="divBodega"></label>
+                </div>
+
+                <div class="form__div">
+                    <label class="form__label minima">Cantidad Mínima: </label>
+                    <label class="form__input" id="divMinima"></label>
+                </div>
+
+
+                <div id="divBtn">
+                    <a href="/editarL-P/" class="form__reg ">EDITAR DATOS</a>
+                    <a href="/listaProductos/" class="form__reg cancelar ">ELIMINAR</a>
+                    <a href="/listaProductos/" class="form__reg cancelar ">CANCELAR</a>
+                </div>
+
+            </div>
+        </main>
+    </section>
+</body>
+
+</html>

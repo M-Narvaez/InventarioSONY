@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash proveedor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='asets_miPerfil/css/estilos.css') }}">
+</head>
+
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items">
+                    <a href="/productos/" class="nav__link__white">Productos</a>
+                </li>
+                <li class="nav__items">
+                    <a href="/indexProveedor/" class="nav__link__white ">Proveedores</a>
+                </li>
+                <li class="nav__items">
+                    <a href="/usuarios/" class="nav__link__white">Usuarios</a>
+                </li>
+                <li class="nav__items">
+                    <a href="" class="nav__link__white nav__perfil">Mi Perfiln</a>
+                </li>
+            </ul>
+
+            <div class="nav__logo">
+                <a href="/" class="nav__link__blue">Cerrar Sesión</a>
+            </div>
+        </nav>
+
+        <section class="title">
+            <h1 class="hero__title container">MI PERFIL</h1>
+        </section>
+
+        <main class="form">
+            <div class="form__container">
+
+                    <div class="form__div">
+                        <label class="form__label id">ID: </label>
+                        <label class="form__input">100000000 </label>
+                    </div>
+
+                    <div class="form__div">
+                        <label class="form__label nombre" >Nombre: </label>
+                        <label class="form__input" >José Alfredo Vargas</label>
+                    </div>
+
+                    <div class="form__div">
+                        <label class="form__label direccion">Direccion: </label>
+                        <label class="form__input" ">CL 12 #11-10 Bogotá</label>
+                    </div>
+
+                    <div class="form__div">
+                        <label class="form__label celular">Celular: </label>
+                        <label class="form__input">3002223344</label>
+                    </div>
+
+                    <div class="form__div">
+                        <label class="form__label correo">Correo: </label>
+                        <label class="form__input">joseav@gmail.com</label>
+                    </div>
+
+
+                    <div>
+                        <a href="/editarDatos/" class="form__reg cancelar">EDITAR DATOS</a>
+                    </div>
+
+            </div>
+    </main>
+    </header>
+</body>
+
+</html>

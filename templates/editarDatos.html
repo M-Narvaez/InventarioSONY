@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang=es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar datos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='editarDatos/css/estilos.css') }}">
+    <script src="{{url_for('static', filename='editarDatos/js/funciones.js')}}"></script>
+</head>
+
+<body>
+    <form class="form" name="frmEditarDatos" onsubmit="return validarEdicion();" >
+
+        <h1 class="title">EDITAR MIS DATOS</h1>
+
+        <div class="form__container">
+         <span class="error" id="errorForm"></span> 
+
+            <div class="form__div__user">
+                <label for="nombre" class="form__label">Nombre: </label>
+                <input type="text" class="form__input" name="nombre" id="nombre">
+                <span class="error" id="errorNombre"></span>
+            </div>
+
+            <div class="form__div__user">
+                <label for="direccion" class="form__label">Direccion: </label>
+                <input type="text" class="form__input" name="direccion" id="direccion">
+                <span class="error" id="errorDireccion"></span>
+            </div>
+
+            <div class="form__div__user">
+                <label for="celular" class="form__label">Celular: </label>
+                <input type="text" class="form__input" name="celular" id="celular">
+                <span class="error" id="errorCelular"></span>
+            </div>
+
+            <div class="form__div__user">
+                <label for="correo" class="form__label">Correo: </label>
+                <input type="email" class="form__input" name="correo" id="correo">
+                <span class="error" id="errorCorreo"></span>
+            </div>
+
+            <button type="submit" value="Enviar" class="form__cta">GUARDAR</button>
+
+            <a href="/cambiarContraseña/" class="form__reg cambiar">CAMBIAR CONTRASEÑA</a>
+
+            <a href="/miPerfil/" class="form__reg cancelar">CANCELAR</a>
+        </div>
+    </form>
+</body>
+
+</html>

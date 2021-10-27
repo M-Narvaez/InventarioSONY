@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang=es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar contraseña</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='asets_cambiarContraseña/css/estilos.css') }}">
+</head>
+
+<body>
+    <form class="form">
+
+        <div class="form__container">
+
+            <div class="form__div__user">
+                <label for="contraseñaAntigua" class="form__label">Contraseña antigua: </label>
+                <input type="text" class="form__input" name="contraseñaAntigua" id="contraseñaAntigua">
+            </div>
+
+            <div class="form__div__user">
+                <label for="contraseñaNueva">Nueva contraseña: </label>
+                <input type="text" class="form__input" name="contraseñaNueva" id="contraseñaNueva">
+            </div>
+
+            <button type="submit" value="Enviar" class="form__cta">GUARDAR</button>
+
+            <a href="/editarDatos/" class="form__reg cancelar">CANCELAR</a>
+        </div>
+    </form>
+</body>
+
+</html>

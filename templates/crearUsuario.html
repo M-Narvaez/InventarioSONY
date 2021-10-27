@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Usuario</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='asets_Usuarios/nuevo/css_crear/estilos.css')}}">
+    <script src="{{url_for('static', filename='asets_Usuarios/nuevo/js/funciones.js')}}"></script>
+</head>
+
+<body>
+    <header class="hero">
+
+        <section class="title">
+            <h1 class="hero__title container">CREAR USUARIO</h1>
+        </section>
+
+        <form class="form" name="formularioCrearUsuario" onsubmit="return validarUsuario();" method="POST">
+
+            <div class="form__container">
+
+                <section class="form__section__1">
+                    <span class="error div" id="errorForm"></span>
+                    <div class="form__div">
+                        <label for="id" class="form__label id">ID : </label>
+                        <input type="number" class="form__input" name="id" id="id" placeholder="Mín 5 caracteres">
+                        <span class="error div" id="errorId"></span>
+                    </div>
+
+
+                    <div class="form__div">
+                        <label class="form__label nombre" for="nombre">Nombre : </label>
+                        <input type="text" class="form__input" name="nombre" id="nombre">
+                        <span class="error div" id="errorNombre"></span>
+                    </div>
+
+
+                    <div class="form__div">
+                        <label class="form__label nombre" for="direccion">Dirección: </label>
+                        <input type="text" class="form__input" name="direccion" id="direccion">
+                        <span class="error div" id="errorDireccion"></span>
+                    </div>
+
+
+                    <div class="form__div">
+                        <label class="form__label celular" for="celular">Celular: </label>
+                        <input type="text" class="form__input" name="celular" id="telefono">
+                        <span class="error div" id="errorTelefono"></span>
+                    </div>
+
+                </section>
+
+                <section class="form__section__2">
+                    <div class="form__div">
+                        <label class="form__label nombre" for="correoElectronico">Correo electrónico : </label>
+                        <input type="text" class="form__input" name="correoElectronico" id="correoElectronico">
+                        <span class="error div" id="errorCorreo"></span>
+                    </div>
+
+
+                    <div class="form__div">
+                        <label class="form__label nombre" for="contraseña">Contraseña : </label>
+                        <input type="password" class="form__input" name="contraseña" id="contrasena">
+                        <span class="error div" id="errorContrasena"></span>
+                    </div>
+
+
+                    <div class="form__div">
+                        <label class="form__label proveedor" for="perfil">Perfil: </label>
+                        <select class="form__input form__input__proveedor" name="perfil" id="perfil">
+                            <optgroup label="Seleccionar...">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </optgroup>
+                        </select>
+                        <span class="error div" id="errorPerfil"></span>
+                    </div>
+
+
+                    <div>
+                        <button type="submit" class="form__reg">CREAR</button>
+                        <a href="/usuarios/" class="form__reg cancelar">CANCELAR</a>
+                    </div>
+                </section>
+            </div>
+        </form>
+    </header>
+</body>
+
+</html>

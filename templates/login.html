@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang=es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'asets_login/css/estilos.css')}}">
+    <script src="{{url_for('static', filename='asets_login/js/funciones.js')}}"></script>
+</head>
+
+<body>
+    <form method="POST" class="form" name="fromLogin"  onsubmit="return validar();">
+
+        <figure class="img__logo">
+            <img src="{{url_for('static', filename='asets_login/img/sony-logo.png')}}" alt="Foto" class="img__img">
+        </figure>
+
+        <h1 class="title">INICIAR SESION</h1>
+
+        <div class="form__container">
+
+            <div class="form__container">
+                <span class="error" id="errorForm"></span> 
+                <div class="form__div__user">
+                    <label for="correo" class="form__label">Correo: </label>
+                    <input type="email" class="form__input" name="correo" id="correo" >
+                    <span class="error" id="errorMail"></span>
+                    </input>
+                </div>
+    
+                <div class="form__div__pass">
+                    <label for="contrasena">Contraseña: </label>
+                    <input type="password" class="form__input" name="contraseña" id="contrasena">
+                    <span class="error" id="errorPassword"></span>    
+                    <img src="{{url_for('static', filename='asets_login/img/ver.png')}}"  width=30 height=35 onmouseover="verClave();" onmouseout="ocultarClave()"/>
+                </div>
+
+        <!--
+            <div class="form__div__check">
+                <input type="checkbox" class="form__check" id="mostrar"><label for="mostrar" class="form__label">Mostrar contraseña</label>
+            </div>
+        -->
+            <button type="submit" value="Enviar" class="form__cta">ENTRAR</button>
+
+            <a href="/olvideContraseña/" class="form__label">¿Olvidaste tu contraseña?</a>
+
+            <a href="/crearUsuario/" class="form__reg">REGISTRARME</a>
+        </div>
+    </form>
+</body>
+</html>
