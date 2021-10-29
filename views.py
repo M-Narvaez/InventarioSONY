@@ -1,6 +1,7 @@
 import sqlite3
 import functools
 from flask import Flask, render_template, blueprints, request, jsonify, url_for,  redirect, session, flash
+from flask.wrappers import Request
 from usuario import usuario
 from werkzeug.security import check_password_hash, generate_password_hash
 from db import get_db
@@ -76,10 +77,6 @@ def usu():
     return jsonify(persona)
 
 
-@main.route('/user/')
-def user():
-    return jsonify(usuario)
-
 
 @main.route('/loginAdmin/', methods=['GET', 'POST'])
 def loginPro():
@@ -101,7 +98,10 @@ def loginPro():
 
             if(sw):
 
+                session['id'] = user[0]
                 session['nombre'] = user[1]
+                session['direccion'] = user[2]
+                session['celular'] = user[3]
                 session['correo'] = user[4]
                 session['perfil'] = user[6]
 
@@ -142,7 +142,10 @@ def loginEmpleado():
 
             if(sw):
 
+                session['id'] = user[0]
                 session['nombre'] = user[1]
+                session['direccion'] = user[2]
+                session['celular'] = user[3]
                 session['correo'] = user[4]
                 session['perfil'] = user[6]
 
@@ -266,6 +269,13 @@ def crearProveedor():
     return render_template('crearProveedor.html')
 
 
+@main.route('/listaProveedores/')
+@login_required
+@restriccion_administrador
+def listaProveedores():
+    return render_template('listaProveedores.html')
+
+
 @main.route('/cancelar/')
 @login_required
 @restriccion_administrador
@@ -278,6 +288,20 @@ def cancelar():
 @restriccion_administrador
 def buscarProveedor():
     return render_template('buscarProveedor.html')
+
+
+@main.route('/editarProveedorL/')
+@login_required
+@restriccion_administrador
+def editarProveedorL():
+    return render_template('editarProveedores.html')
+
+
+@main.route('/editarProveedorB/')
+@login_required
+@restriccion_administrador
+def editarProveedorB():
+    return render_template('editarProveedores.html')
 
 
 @main.route('/usuarios/')
@@ -305,14 +329,38 @@ def crearUsuario():
         db = get_db()
 
         Contraseña = generate_password_hash(Contraseña)
-        db.execute("insert into Persona (idPersona, nombres, direccion, telefono, correoElectronico, contrasena, idPerfil) values (?, ?, ?, ?, ?, ?, ?)",
-                   (Id, Nombre, Direccion, Celular, Correo, Contraseña, Perfil))
+        db.execute("insert into Persona (idPersona, nombres, direccion, telefono, correoElectronico, contrasena, idPerfil) values (?, ?, ?, ?, ?, ?, ?)",(Id, Nombre, Direccion, Celular, Correo, Contraseña, Perfil))
         db.commit()
         db.close()
 
         return render_template('index.html')
 
     return render_template('crearUsuario.html')
+
+
+@main.route('/crearUsuarioLog/', methods=['GET', 'POST'])
+def crearUsuarioLog():
+
+    if(request.method == 'POST'):
+
+        Id = request.form['id']
+        Nombre = request.form['nombre']
+        Direccion = request.form['direccion']
+        Celular = request.form['celular']
+        Correo = request.form['correoElectronico']
+        Contraseña = request.form['contraseña']
+        Perfil = request.form['perfil']
+
+        db = get_db()
+
+        Contraseña = generate_password_hash(Contraseña)
+        db.execute("insert into Persona (idPersona, nombres, direccion, telefono, correoElectronico, contrasena, idPerfil) values (?, ?, ?, ?, ?, ?, ?)",(Id, Nombre, Direccion, Celular, Correo, Contraseña, Perfil))
+        db.commit()
+        db.close()
+
+        return render_template('index.html')
+
+    return render_template('crearUsuarioLog.html')
 
 
 @main.route('/listaUsuarios/')
@@ -332,3 +380,19 @@ def miPerfil():
 @login_required
 def editarDatos():
     return render_template('editarDatos.html')
+
+
+@main.route('/cambiarContraseña/')
+@login_required
+def cambiarContraseña():
+    return render_template('cambiarContraseña.html')
+
+
+@main.route('/olvideContraseña/', methods = ['GET', 'POST'])
+def olvideContraseña():
+
+    if(request.method == 'POST'):
+
+        return render_template('index.html')
+
+    return render_template('recuperarContraseña.html')

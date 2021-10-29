@@ -20,25 +20,25 @@
 
             <div class="form__div__user">
                 <label for="nombre" class="form__label">Nombre: </label>
-                <input type="text" class="form__input" name="nombre" id="nombre">
+                <input type="text" class="form__input" name="nombre" id="nombre" value="{{session['nombre']}}">
                 <span class="error" id="errorNombre"></span>
             </div>
 
             <div class="form__div__user">
                 <label for="direccion" class="form__label">Direccion: </label>
-                <input type="text" class="form__input" name="direccion" id="direccion">
+                <input type="text" class="form__input" name="direccion" id="direccion" value="{{session['direccion']}}">
                 <span class="error" id="errorDireccion"></span>
             </div>
 
             <div class="form__div__user">
                 <label for="celular" class="form__label">Celular: </label>
-                <input type="text" class="form__input" name="celular" id="celular">
+                <input type="text" class="form__input" name="celular" id="celular" value="{{session['celular']}}">
                 <span class="error" id="errorCelular"></span>
             </div>
 
             <div class="form__div__user">
                 <label for="correo" class="form__label">Correo: </label>
-                <input type="email" class="form__input" name="correo" id="correo">
+                <input type="email" class="form__input" name="correo" id="correo" value="{{session['correo']}}">
                 <span class="error" id="errorCorreo"></span>
             </div>
 
