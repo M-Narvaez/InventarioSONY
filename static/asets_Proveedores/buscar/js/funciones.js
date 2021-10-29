@@ -12,13 +12,11 @@ function valideKey(evt) {
 
 function validarBusqueda() {
     var nitInput = document.formularioBuscarProv.Nit;
-    var razonSocInput = document.formularioBuscarProv.RazonSocial;
     var swErrores = false;
 
-    //console.log(nitInput.value + " - " + razonSocInput.value + " - " + direccionInput.value + " - " + telefonoInput.value);
 
-    if(nitInput.value.length == 0 || razonSocInput.value.length == 0 ){
-        document.getElementById("errorForm").innerHTML="Ingrese almenos un filtro de busqueda";
+    if(nitInput.value.length == 0 ){
+        document.getElementById("errorForm").innerHTML="Campos obligatorios (*)";
     }
 
     if (nitInput.value.length == 0 || nitInput.value.length < 8) {
@@ -27,14 +25,6 @@ function validarBusqueda() {
         swErrores = true;
     }else if(nitInput.value.length > 8){
         document.getElementById("errorNit").innerHTML = " *";
-    }
-
-    if (razonSocInput.value.length == 0 || razonSocInput.value.length < 8) {
-        document.getElementById("errorRazonSocial").innerHTML = " *";
-        razonSocInput.focus();
-        swErrores = true;
-    }else if(razonSocInput.value.length > 8){
-        document.getElementById("errorRazonSocial").innerHTML = " ";
     }
 
     if (swErrores == true) {

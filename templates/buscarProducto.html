@@ -22,7 +22,7 @@
         </section>
     </header>
 
-    <form class="form">
+    <form class="form" method="POST">
 
         <div class="form__container">
             <section class="form__section">
@@ -32,7 +32,6 @@
                         <optgroup label="Seleccionar...">
                             <option>Id</option>
                             <option>Nombre</option>
-                            <option>Proveedor</option>
                         </optgroup>
                     </select>
                 </div>
@@ -53,7 +52,7 @@
             <table class="table__container">
 
                 <thead class="table__title">
-                    <tr>
+
                         <th class="items">ID</th>
                         <th class="items">NOMBRE</th>
                         <th class="items">DESCRIPCION</th>
@@ -61,20 +60,20 @@
                         <th class="items">C. BODEGA</th>
                         <th class="items">C. MINIMA</th>
                         <th>ACCIÓN</th>
-                    </tr>
+
                 </thead>
 
                 <tbody class="table__cont">
-                    <tr>
-                        <td class="items">1200</td>
-                        <td class="items">Sony Xperia XZ</td>
-                        <td class="items">Smartphone gaming...</td>
-                        <td class="items">SONY GAMING</td>
-                        <td class="items">250</td>
-                        <td class="items">100</td>
-                        <td><a href="/editarB-P/" class="nav__link__editar">Editar</a><a href="#" class="nav__link__borrar">Borrar</a></td>
-                    </tr>
-
+                        {%if(datos)%}
+                        <td class="items">{{datos['id']}}</td>
+                        <td class="items">{{datos['nombre']}}</td>
+                        <td class="items">{{datos['descripcion']}}</td>
+                        <td class="items">{{datos['proveedor']}}</td>
+                        <td class="items">{{datos['bodega']}}</td>
+                        <td class="items">{{datos['minBodega']}}</td>
+                        
+                        <td><a href="/editarB-P/" class="nav__link__editar">Editar</a></td>
+                        {%endif%}
                 </tbody>
             </table>
     </main>

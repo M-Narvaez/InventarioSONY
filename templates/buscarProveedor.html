@@ -22,22 +22,16 @@
             <h1 class="hero__title container">Buscar Proveedor</h1>
         </section>
 
-    <form class="form" name="formularioBuscarProv" onsubmit="return validarBusqueda();" >
+    <form class="form" method="POST" name="formularioBuscarProv" onsubmit="return validarBusqueda();" >
         <span class="error" id="errorForm"></span> 
         <div class="form__container">
             <section class="form__section">
                 <div>
                     <label for="nitBus" class="form__label">NIT: </label>
-                    <input type="text" class="form__input" name="nitBus" id="Nit"
-                    onkeypress="return valideKey(event);">
+                    <input type="text" class="form__input" name="Nit" id="Nit">
                     <span class="error" id="errorNit"></span>
                 </div>
 
-                <div>
-                    <label class="form__label" for="razonSocial">Razón social:</label>
-                    <input type="text" class="form__input" name="razonSocial" id="RazonSocial">
-                    <span class="error" id="errorRazonSocial"></span>
-                </div>
 
                 <div>
                     <button type="submit" class="form__reg">BUSCAR</button>
@@ -60,13 +54,14 @@
                 </thead>
 
                 <tbody class="table__cont">
-                    <tr>
-                        <td class="items">Alfreds Futterkiste</td>
-                        <td class="items">Maria Anders</td>
-                        <td class="items">Germany</td>
-                        <td class="items">9856525</td>
-                        <td><a href="/editarProveedorB/" class="nav__link__editar">Editar</a><a href="/buscarProveedor/" class="nav__link__borrar">Borrar</a></td>
-                    </tr>
+                    {%if (datos)%}
+                        <td class="items">{{datos['razon']}}</td>
+                        <td class="items">{{datos['nit']}}</td>
+                        <td class="items">{{datos['direccion']}}</td>
+                        <td class="items">{{datos['telefono']}}</td>
+                        
+                        <td><a href="/editarProveedorL/0/" class="nav__link__editar">Editar</a></td>
+                    {%endif%}
 
                 </tbody>
             </table>

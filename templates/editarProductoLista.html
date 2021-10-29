@@ -22,21 +22,16 @@
 
                 <section class="form__section__1">
                     <span class="error " id="errorForm"></span> 
-                    <div class="form__div">
-                        <label for="idEdit" class="form__label id">ID: </label>
-                        <input type="text" class="form__input" name="idEdit" id="idEdit">
-                        <span class="error " id="errorId"></span>
-                    </div>
 
                     <div class="form__div">
                         <label class="form__label nombre" for="nombreEdit">Nombre: </label>
-                        <input type="text" class="form__input" name="nombreEdit" id="nombreEdit">
+                        <input type="text" class="form__input" name="nombreEdit" id="nombreEdit" value="{{datos[0]}}">
                         <span class="error " id="errorNombre"></span>
                     </div>
 
                     <div class="form__div">
                         <label class="form__label form__label__descripcion" for="descripcionEdit">Descripcion: </label>
-                        <textarea class="form__input form__input__descripcion" name="descripcionEdit" id="descripcionEdit"></textarea>
+                        <textarea class="form__input form__input__descripcion" name="descripcionEdit" id="descripcionEdit">{{datos[1]}}</textarea>
                         <span class="error " id="errorDescripcion"></span>
                     </div>
 
@@ -53,13 +48,13 @@
                 <section class="form__section__2">
                     <div class="form__div">
                         <label class="form__label bodega" for="bodegaEdit">Cantidad en Bodega: </label>
-                        <input type="text" class="form__input" name="bodegaEdit" id="bodegaEdit">
+                        <input type="text" class="form__input" name="bodegaEdit" id="bodegaEdit" value="{{datos[2]}}">
                         <span class="error " id="errorBodega"></span>
                     </div>
 
                     <div class="form__div">
-                        <label class="form__label minima" for="minimaEdit">Cantidad Disponible: </label>
-                        <input type="text" class="form__input" name="minimaEdit" id="minimaEdit">
+                        <label class="form__label minima" for="minimaEdit">Cantidad Mínima: </label>
+                        <input type="text" class="form__input" name="minimaEdit" id="minimaEdit" value="{{datos[3]}}">
                         <span class="error " id="errorMinima"></span>
                     </div>
 
@@ -74,21 +69,3 @@
 </body>
 
 </html>
-
-
-<!--
-    editarProducto
-    <div>
-                        <button type="submit" class="form__reg">GUARDAR</button>
-                        <a href="/cancelarE_B_P/" class="form__reg cancelar">CANCELAR</a>
-                    </div>
-
-
-
-
-    editarProductoLista
-    <div>
-                        <button type="submit" class="form__reg">GUARDAR</button>
-                        <a href="/cancelarL_P/" class="form__reg cancelar">CANCELAR</a>
-                    </div>
--->

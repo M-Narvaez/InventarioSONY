@@ -95,14 +95,17 @@
 td, th{
     padding: 10px 10px;
     color: #000;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .items{
     border-right: 1px solid #585858;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .table__cont{
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .nav__link__editar{

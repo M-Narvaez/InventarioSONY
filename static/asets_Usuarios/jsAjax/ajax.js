@@ -14,13 +14,12 @@ function agregarUsuario(evt){
 
     var admin = "Administrador";
     var user = "Usuario";
-    var superAdmin = "SuperAdministrador";
 
-    console.log(data);
 
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 1; i < data.length; i++) {
 
         var mensaje = data[i];
+        var posicion = i;
         var usuario = document.createElement("tr");
         var idUser = document.createElement("td") ; 
         var nombreUsuario = document.createElement("td") ; 
@@ -31,6 +30,7 @@ function agregarUsuario(evt){
         var tdlink = document.createElement("td");
         var link = document.createElement("a") ;
         var boton = "Borrar";
+
 
         idUser.innerHTML = mensaje.idPersona;
         nombreUsuario.innerHTML= mensaje.nombres;
@@ -43,8 +43,6 @@ function agregarUsuario(evt){
             perfilUsuario.innerHTML = user;
         }else if(mensaje.idPerfil ==2 ){
             perfilUsuario.innerHTML = admin;
-        }else{
-            perfilUsuario.innerHTML = superAdmin;
         }
 
         idUser.className = "items";
@@ -55,16 +53,16 @@ function agregarUsuario(evt){
         perfilUsuario.className = "items";
 
 
-        link.href = "/borrarUsuario/";
+        link.href = "/borrarUsuario/ " + posicion + "/";
         link.className = "nav__link__borrar items";
         link.innerHTML = boton;
 
         usuario.appendChild(idUser);
         usuario.appendChild(nombreUsuario);
+        usuario.appendChild(perfilUsuario);
         usuario.appendChild(direccUsuario);
         usuario.appendChild(telUsuario);
         usuario.appendChild(correoUsuario);
-        usuario.appendChild(perfilUsuario);
         usuario.appendChild(tdlink).appendChild(link);
         otroUser = document.getElementById("tablaUsuarios").appendChild(usuario);       
     }

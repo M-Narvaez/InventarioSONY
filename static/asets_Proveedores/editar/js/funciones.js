@@ -18,20 +18,11 @@ function validarProveedorEdit() {
 
     //console.log(nitInput.value + " - " + razonSocInput.value + " - " + direccionInput.value + " - " + telefonoInput.value);
 
-    if(nitInput.value.length == 0 || razonSocInput.value.length == 0 || direccionInput.value.length == 0 
+    if(razonSocInput.value.length == 0 || direccionInput.value.length == 0 
         ||  telefonoInput.value.length == 0 ){
         document.getElementById("errorForm").innerHTML="Los campos con (*) son obligatorios";
     }
 
-
-
-    if (nitInput.value.length == 0 || nitInput.value.length < 8) {
-        document.getElementById("errorNit").innerHTML = " *";
-        nitInput.focus();
-        swErrores = true;
-    }else if(nitInput.value.length > 8){
-        document.getElementById("errorNit").innerHTML = " ";
-    }
 
     if (razonSocInput.value.length == 0 || razonSocInput.value.length < 8) {
         document.getElementById("errorRazonSocial").innerHTML = " *";
@@ -40,14 +31,7 @@ function validarProveedorEdit() {
     }else if(razonSocInput.value.length > 8){
         document.getElementById("errorRazonSocial").innerHTML = " ";
     }
-/*
-    if (direccionInput.value.length == 0 ) {
-        document.getElementById("errorDireccion").innerHTML = " *";
-        direccionInput.focus();
-        swErrores = true;
-    }else {
-        document.getElementById("errorDireccion").innerHTML = " ";
-    }*/
+
 
     if (telefonoInput.value.length == 0 || telefonoInput.value.length < 10) {
         document.getElementById("errorTelefono").innerHTML = " *";

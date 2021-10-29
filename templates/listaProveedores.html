@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Proveedores</title>
     <link rel="stylesheet" href="{{url_for('static', filename='asets_Proveedores/lista/css/estilos.css')}}">
+    <script src="{{url_for('static', filename ='asets_Proveedores/jsAjax/ajax.js')}}"></script>
 </head>
 
 <body>
@@ -25,23 +26,17 @@
             <table class="table__container">
 
                 <thead class="table__title">
-                    <tr>
+                    
                         <th class="items">Razón Social</th>
                         <th class="items">Nit</th>
                         <th class="items">Dirección</th>
                         <th class="items">Teléfono</th>
                         <th>ACCIÓN</th>
-                    </tr>
+                    
                 </thead>
 
-                <tbody class="table__cont">
-                    <tr>
-                        <td class="items">Alfreds Futterkiste</td>
-                        <td class="items">Maria Anders</td>
-                        <td class="items">Germany</td>
-                        <td class="items">9856525</td>
-                        <td><a href="/editarProveedorL/" class="nav__link__editar">Editar</a><a href="/listaProveedores/" class="nav__link__borrar">Borrar</a></td>
-                    </tr>
+                <tbody class="table__cont" id="tablaUsuarios">
+                    
 
                 </tbody>
             </table>

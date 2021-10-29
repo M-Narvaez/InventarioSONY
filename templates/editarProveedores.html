@@ -22,37 +22,29 @@
             <div class="form__container">
 
                 <section class="form__section__1">
-                 <span class="error div" id="errorForm"></span> 
-
-                    <div class="form__div div">
-                        <label for="Nit" class="form__label id">NIT: </label>
-                        <input type="text" class="form__input input" name="Nit" id="Nit"
-                            onkeypress="return valideKey(event);">
-                        <span class="error" id="errorNit"></span>
-                    </div>
-                    
+                    <span class="error div" id="errorForm"></span>
 
                     <div class="form__div div">
                         <label class="form__label nombre" for="RazonSocial">Razón social: </label>
-                        <input type="text" class="form__input " name="RazonSocial" id="RazonSocial">
+                        <input type="text" class="form__input " name="RazonSocial" id="RazonSocial" value="{{datos[0]}}">
                         <span class="error" id="errorRazonSocial"></span>
                     </div>
-                   
+
 
                     <div class="form__div div">
                         <label class="form__label nombre" for="Direccion">Dirección: </label>
-                        <input type="text" class="form__input input" name="Direccion" id="Direccion">
+                        <input type="text" class="form__input input" name="Direccion" id="Direccion" value="{{datos[1]}}">
                         <span class="error" id="errorDireccion"></span>
                     </div>
-                    
+
 
                     <div class=" div">
                         <label class="form__label nombre" for="Telefono">Teléfono: </label>
                         <input type="text" class="form__input input_tel" name="Telefono" id="Telefono"
-                            onkeypress="return valideKey(event);">
+                            onkeypress="return valideKey(event);" value="{{datos[2]}}">
                         <span class="error" id="errorTelefono"></span>
                     </div>
-                    
+
 
                     <div>
                         <button type="submit" class="form__reg">GUARDAR</button>

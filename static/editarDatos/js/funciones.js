@@ -32,13 +32,6 @@ function validarEdicion() {
         document.getElementById("errorCelular").innerHTML=" ";
     }
 
-    if (!correoInput.value.match(formato_email) || correoInput.value.length == 0) {
-        document.getElementById("errorCorreo").innerHTML = " *";
-        correoInput.focus();
-        swErrores = true;
-    } else if (correoInput.value.match(formato_email)|| correoInput.value.length > 0) {
-        document.getElementById("errorCorreo").innerHTML = " ";
-    }
 
 
     if (swErrores == true) {

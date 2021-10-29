@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <form class="form" name="frmEditarDatos" onsubmit="return validarEdicion();" >
+    <form class="form" method="POST" name="frmEditarDatos" onsubmit="return validarEdicion();">
 
         <h1 class="title">EDITAR MIS DATOS</h1>
 
         <div class="form__container">
-         <span class="error" id="errorForm"></span> 
+            <span class="error" id="errorForm"></span>
 
             <div class="form__div__user">
                 <label for="nombre" class="form__label">Nombre: </label>
@@ -34,12 +34,6 @@
                 <label for="celular" class="form__label">Celular: </label>
                 <input type="text" class="form__input" name="celular" id="celular" value="{{session['celular']}}">
                 <span class="error" id="errorCelular"></span>
-            </div>
-
-            <div class="form__div__user">
-                <label for="correo" class="form__label">Correo: </label>
-                <input type="email" class="form__input" name="correo" id="correo" value="{{session['correo']}}">
-                <span class="error" id="errorCorreo"></span>
             </div>
 
             <button type="submit" value="Enviar" class="form__cta">GUARDAR</button>
