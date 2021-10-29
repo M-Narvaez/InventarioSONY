@@ -17,12 +17,19 @@
                 <li class="nav__items">
                     <a href="/productos/" class="nav__link__white">Productos</a>
                 </li>
+
+                {%if (session['perfil'] == 1 or session['perfil'] == 3)%}
                 <li class="nav__items">
                     <a href="/indexProveedor/" class="nav__link__white ">Proveedores</a>
                 </li>
+                {%endif%}
+
+                {%if (session['perfil'] == 2 or session['perfil'] == 3)%}
                 <li class="nav__items">
                     <a href="/usuarios/" class="nav__link__white">Usuarios</a>
                 </li>
+                {%endif%}
+
                 <li class="nav__items">
                     <a href="" class="nav__link__white nav__perfil">Mi Perfiln</a>
                 </li>

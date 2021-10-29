@@ -20,9 +20,13 @@
                 <li class="nav__items">
                     <a href="" class="nav__link__white nav__proveedor">Proveedores</a>
                 </li>
+
+                {%if (session['perfil'] == 2 or session['perfil'] == 3)%}
                 <li class="nav__items">
                     <a href="/usuarios/" class="nav__link__white">Usuarios</a>
                 </li>
+                {%endif%}
+                
                 <li class="nav__items">
                     <a href="/miPerfil/" class="nav__link__white">Mi Perfiln</a>
                 </li>
@@ -45,10 +49,12 @@
                     <a href="/listaProveedores/" class="nav__link__productos">Lista de Proveedores</a>
                 </article>
 
+                {%if (session['perfil'] == 3)%}
                 <article class="about__icons">
                     <img src="{{url_for('static', filename='asets_Proveedores/dash/img/new.svg')}}" class="about__icon" alt="category" />
                     <a href="/crearProveedor/" class="nav__link__productos">Nuevo Proveedor</a>
                 </article>
+                {%endif%}
 
                 <article class="about__icons">
                     <img src="{{url_for('static', filename='asets_Proveedores/dash/img/search.svg')}}" class="about__icon" alt="category" />

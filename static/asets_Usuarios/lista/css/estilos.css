@@ -159,24 +159,11 @@ td, th{
     border-right: 1px solid #585858;
 }
 
+
 .table__cont{
     text-align: center;
 }
 
-.nav__link__editar{
-    font-size: 14px;
-    background-color: #fff;
-    color: black;
-    border: none;
-    font-weight: 300;
-    padding: .3em 2em;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid #bbb0b0;
-    text-decoration: none;
-    height: 32px;
-    margin-right: 5px;
-}
 
 .nav__link__borrar{
     font-size: 14px;

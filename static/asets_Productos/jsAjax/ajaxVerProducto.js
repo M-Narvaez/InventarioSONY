@@ -29,22 +29,22 @@ function mostrarProducto(evt) {
             var bodProductoL = document.createElement("label");
             var minProductoL = document.createElement("label");
 
-            idProductoL.innerHTML = mensaje.ID;
+            idProductoL.innerHTML = mensaje.idProducto;
             divId.appendChild(idProductoL);
 
-            nombreProductoL.innerHTML = mensaje.Nombre;
+            nombreProductoL.innerHTML = mensaje.nombreProducto;
             divNombre.appendChild(nombreProductoL);
 
-            descProductoL.innerHTML = mensaje.Descripcion;
+            descProductoL.innerHTML = mensaje.descripcion;
             divDescripcion.appendChild(descProductoL);
 
-            provProductoL.innerHTML = mensaje.Proveedor;
+            provProductoL.innerHTML = mensaje.fechaRegistro;
             divProveedor.appendChild(provProductoL);
 
-            bodProductoL.innerHTML = mensaje.CantidadBodega;
+            bodProductoL.innerHTML = mensaje.cantidadBodega;
             divBodega.appendChild(bodProductoL);
 
-            minProductoL.innerHTML = mensaje.CantidadMinima;
+            minProductoL.innerHTML = mensaje.cantidadDisponible;
             divMinima.appendChild(minProductoL);
         }
 

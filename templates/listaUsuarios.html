@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar producto</title>
     <link rel="stylesheet" href="{{url_for('static', filename='asets_Usuarios/lista/css/estilos.css')}}">
+    <script src="{{url_for('static', filename ='asets_Usuarios/jsAjax/ajax.js')}}"></script>
 </head>
 
 <body>
@@ -65,17 +66,7 @@
                     </tr>
                 </thead>
 
-                <tbody class="table__cont">
-                    <tr>
-                        <td class="items">100000000</td>
-                        <td class="items">José Alfredo Vargas</td>
-                        <td class="items">Administrador</td>
-                        <td class="items">CL 12 #11-10 Bogotá</td>
-                        <td class="items">3002223344</td>
-                        <td class="items">joseav@gmail.com
-                        </td>
-                        <td><a href="#" class="nav__link__borrar">BORRAR</a></td>
-                    </tr>
+                <tbody class="table__cont" id="tablaUsuarios">
 
                 </tbody>
             </table>

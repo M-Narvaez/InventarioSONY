@@ -12,17 +12,23 @@
 <body>
     <header class="hero">
         <nav class="nav container">
-            
+
             <ul class="nav__link nav__link--menu">
                 <li class="nav__items ">
                     <a href="" class="nav__link__white nav__producto">Productos</a>
                 </li>
+                
+                {%if (session['perfil'] == 1 or session['perfil'] == 3)%}
                 <li class="nav__items">
-                    <a href="/indexProveedor/" class="nav__link__white">Proveedores</a>
+                    <a href="/indexProveedor/" class="nav__link__white ">Proveedores</a>
                 </li>
+                {%endif%}
+
+                {%if (session['perfil'] == 2 or session['perfil'] == 3)%}
                 <li class="nav__items">
                     <a href="/usuarios/" class="nav__link__white">Usuarios</a>
                 </li>
+                {%endif%}
                 <li class="nav__items">
                     <a href="/miPerfil/" class="nav__link__white">Mi Perfiln</a>
                 </li>
@@ -38,25 +44,31 @@
         </section>
 
         <main>
-        <section class="container about">
-            <div class="about__main">
-                <article class="about__icons">
-                    <img src="{{url_for('static', filename='asets_Productos/dashProducto/img/lista.svg')}}" class="about__icon" alt="category" />
-                    <a href="/listaProductos/" class="nav__link__productos">Lista de productos</a>
-                </article>
+            <section class="container about">
+                <div class="about__main">
+                    <article class="about__icons">
+                        <img src="{{url_for('static', filename='asets_Productos/dashProducto/img/lista.svg')}}"
+                            class="about__icon" alt="category" />
+                        <a href="/listaProductos/" class="nav__link__productos">Lista de productos</a>
+                    </article>
 
-                <article class="about__icons">
-                    <img src="{{url_for('static', filename='asets_Productos/dashProducto/img/new.svg')}}" class="about__icon" alt="category" />
-                    <a href="/nuevoProducto/" class="nav__link__productos">Nuevo producto</a>
-                </article>
+                    {%if (session['perfil'] == 2 or session['perfil'] == 3)%}
+                    <article class="about__icons">
+                        <img src="{{url_for('static', filename='asets_Productos/dashProducto/img/new.svg')}}"
+                            class="about__icon" alt="category" />
+                        <a href="/nuevoProducto/" class="nav__link__productos">Nuevo producto</a>
+                    </article>
 
-                <article class="about__icons">
-                    <img src="{{url_for('static', filename='asets_Productos/dashProducto/img/search.png')}}" class="about__icon" alt="category" />
-                    <a href="/buscarProducto/" class="nav__link__productos">Buscar Producto</a>
-                </article>
-            </div>
-        </section>
-    </main>
+                    {%endif%}
+
+                    <article class="about__icons">
+                        <img src="{{url_for('static', filename='asets_Productos/dashProducto/img/search.png')}}"
+                            class="about__icon" alt="category" />
+                        <a href="/buscarProducto/" class="nav__link__productos">Buscar Producto</a>
+                    </article>
+                </div>
+            </section>
+        </main>
     </header>
 </body>
 

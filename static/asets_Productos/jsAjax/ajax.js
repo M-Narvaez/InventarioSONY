@@ -9,7 +9,7 @@ objXMLHTTP.send();
 
 
 function agregarProducto(evt){
-    //var nombre =document.getElementById("NombreP"); 
+
     var data = JSON.parse(this.response);
 
     console.log(data);
@@ -23,9 +23,9 @@ function agregarProducto(evt){
         var imageProd = document.createElement("img") ; 
         var nombreProducto  = document.createElement("h4")  ;    
         var link = document.createElement("a") ;
-       // info += "<h4>" + mensaje.Nombre + "</h4>"
-        nombreProducto.innerHTML= mensaje.Nombre;
-        //const img = document.createElement("img");
+
+        nombreProducto.innerHTML= mensaje.nombreProducto;
+
         imageProd.src = "/static/asets_Productos/listaProductos/img/smartphone.svg";
         imageProd.alt = "Logot";
         link.href = "/verProducto/" + posicion + "/";

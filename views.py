@@ -1,7 +1,6 @@
 import sqlite3
 import functools
 from flask import Flask, render_template, blueprints, request, jsonify, url_for,  redirect, session, flash
-from producto import producto
 from usuario import usuario
 from werkzeug.security import check_password_hash, generate_password_hash
 from db import get_db
@@ -19,6 +18,26 @@ def login_required(vista):
     return vista_envuelta
 
 
+def restriccion_trabajador(vista):
+    @functools.wraps(vista)
+    def vista_envuelta(**kwargs):
+        if (session['perfil'] == 1):
+            return redirect(url_for('main.dashEmpleado'))
+        return vista(**kwargs)
+
+    return vista_envuelta
+
+
+def restriccion_administrador(vista):
+    @functools.wraps(vista)
+    def vista_envuelta(**kwargs):
+        if (session['perfil'] == 2):
+            return redirect(url_for('main.productos'))
+        return vista(**kwargs)
+
+    return vista_envuelta
+
+
 @main.route('/')
 def index():
     return render_template('index.html')
@@ -26,7 +45,35 @@ def index():
 
 @main.route('/pro/')
 def product():
+
+    db = get_db()
+
+    db.row_factory = sqlite3.Row
+    filas = db.execute("SELECT * FROM Producto").fetchall()
+    db.close()
+
+    producto = []
+    for item in filas:
+        producto.append({k: item[k] for k in item.keys()})
+
     return jsonify(producto)
+
+
+@main.route('/usu/')
+def usu():
+
+    db = get_db()
+
+    db.row_factory = sqlite3.Row
+    filas = db.execute("select idPersona, nombres, telefono, direccion, correoElectronico, idPerfil, fechaRegistro from Persona")
+
+    persona = []
+    for item in filas:
+        persona.append({k: item[k] for k in item.keys()})
+
+    db.close()
+    
+    return jsonify(persona)
 
 
 @main.route('/user/')
@@ -43,7 +90,6 @@ def loginPro():
         contraseña = request.form['contraseña']
         db = get_db()
 
-        #sql = "select * from Persona where correoElectronico = '{0}' and contrasena = '{1}' and idPerfil = '2' or idPerfil = '3'".format(correo, contraseña)
         user = db.execute(
             "select * from Persona where correoElectronico = ?", (correo,)).fetchone()
         db.commit()
@@ -59,14 +105,17 @@ def loginPro():
                 session['correo'] = user[4]
                 session['perfil'] = user[6]
 
-                if(perfil == 2 or perfil == 3):
+                if(perfil == 3):
                     return redirect(url_for('main.InicioAdmin'))
+                elif(perfil == 2):
+                    return redirect(url_for('main.productos'))
         flash('Usuario o clave incorrecta.')
     return render_template('loginAdmin.html')
 
 
 @main.route('/InicioAdmin/')
 @login_required
+@restriccion_administrador
 def InicioAdmin():
     return render_template('dashAdmin.html')
 
@@ -124,12 +173,12 @@ def productos():
 @main.route('/listaProductos/')
 @login_required
 def listaProductos():
-    #pro = modelo.producto(id = 2200, nombre = 'Xperia Mark', descripcion = 'Smartphone Photograpic', cantidadBodega = 350, cantidadMinima = 100)
     return render_template('listaProductos.html')
 
 
 @main.route('/nuevoProducto/', methods=['GET', 'POST'])
 @login_required
+@restriccion_trabajador
 def nuevoProducto():
 
     if(request.method == 'POST'):
@@ -178,14 +227,23 @@ def cancelarL_P():
     return render_template('listaProductos.html')
 
 
+@main.route('/buscarProducto/')
+@login_required
+def buscarProducto():
+    return render_template('buscarProducto.html')
+
+
 @main.route('/indexProveedor/')
 @login_required
+@restriccion_administrador
 def proveedores():
     return render_template('dashProveedor.html')
 
 
 @main.route('/crearProveedor/', methods=['GET', 'POST'])
 @login_required
+@restriccion_trabajador
+@restriccion_administrador
 def crearProveedor():
 
     if(request.method == 'POST'):
@@ -210,18 +268,28 @@ def crearProveedor():
 
 @main.route('/cancelar/')
 @login_required
+@restriccion_administrador
 def cancelar():
     return render_template('dashProveedor.html')
 
 
+@main.route('/buscarProveedor/')
+@login_required
+@restriccion_administrador
+def buscarProveedor():
+    return render_template('buscarProveedor.html')
+
+
 @main.route('/usuarios/')
 @login_required
+@restriccion_trabajador
 def usuarios():
     return render_template('dashUsuario.html')
 
 
 @main.route('/crearUsuario/', methods=['GET', 'POST'])
 @login_required
+@restriccion_administrador
 def crearUsuario():
 
     if(request.method == 'POST'):
@@ -237,7 +305,8 @@ def crearUsuario():
         db = get_db()
 
         Contraseña = generate_password_hash(Contraseña)
-        db.execute("insert into Persona (idPersona, nombres, direccion, telefono, correoElectronico, contrasena, idPerfil) values (?, ?, ?, ?, ?, ?, ?)",(Id, Nombre, Direccion, Celular, Correo, Contraseña, Perfil))
+        db.execute("insert into Persona (idPersona, nombres, direccion, telefono, correoElectronico, contrasena, idPerfil) values (?, ?, ?, ?, ?, ?, ?)",
+                   (Id, Nombre, Direccion, Celular, Correo, Contraseña, Perfil))
         db.commit()
         db.close()
 
@@ -248,6 +317,7 @@ def crearUsuario():
 
 @main.route('/listaUsuarios/')
 @login_required
+@restriccion_trabajador
 def listaUsuario():
     return render_template('listaUsuarios.html')
 
@@ -256,3 +326,9 @@ def listaUsuario():
 @login_required
 def miPerfil():
     return render_template('miPerfil.html')
+
+
+@main.route('/editarDatos/')
+@login_required
+def editarDatos():
+    return render_template('editarDatos.html')

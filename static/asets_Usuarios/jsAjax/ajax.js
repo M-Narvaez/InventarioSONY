@@ -1,7 +1,7 @@
 
 var objXMLHTTP = new XMLHttpRequest();
 
-objXMLHTTP.open('GET', 'http://127.0.0.1:5000/user/')
+objXMLHTTP.open('GET', 'http://127.0.0.1:5000/usu/')
 
 objXMLHTTP.addEventListener('load', agregarUsuario);
 
@@ -9,8 +9,9 @@ objXMLHTTP.send();
 
 
 function agregarUsuario(evt){
-    //var nombre =document.getElementById("NombreP"); 
+
     var data = JSON.parse(this.response);
+
     var admin = "Administrador";
     var user = "Usuario";
     var superAdmin = "SuperAdministrador";
@@ -27,20 +28,36 @@ function agregarUsuario(evt){
         var telUsuario = document.createElement("td") ; 
         var correoUsuario = document.createElement("td");
         var perfilUsuario = document.createElement("td");
+        var tdlink = document.createElement("td");
+        var link = document.createElement("a") ;
+        var boton = "Borrar";
 
-        idUser.innerHTML = mensaje.ID;
-        nombreUsuario.innerHTML= mensaje.Nombre;
-        direccUsuario.innerHTML= mensaje.Direccion;
-        telUsuario.innerHTML = mensaje.Telefono;
-        correoUsuario.innerHTML = mensaje.Correo;
-        
-        if(mensaje.Perfil ==1){
+        idUser.innerHTML = mensaje.idPersona;
+        nombreUsuario.innerHTML= mensaje.nombres;
+        direccUsuario.innerHTML= mensaje.direccion;
+        telUsuario.innerHTML = mensaje.telefono;
+        correoUsuario.innerHTML = mensaje.correoElectronico;
+
+
+        if(mensaje.idPerfil ==1){
             perfilUsuario.innerHTML = user;
-        }else if(mensaje.Perfil ==2 ){
+        }else if(mensaje.idPerfil ==2 ){
             perfilUsuario.innerHTML = admin;
         }else{
             perfilUsuario.innerHTML = superAdmin;
         }
+
+        idUser.className = "items";
+        nombreUsuario.className = "items";
+        direccUsuario.className = "items";
+        telUsuario.className = "items";
+        correoUsuario.className = "items";
+        perfilUsuario.className = "items";
+
+
+        link.href = "/borrarUsuario/";
+        link.className = "nav__link__borrar items";
+        link.innerHTML = boton;
 
         usuario.appendChild(idUser);
         usuario.appendChild(nombreUsuario);
@@ -48,6 +65,7 @@ function agregarUsuario(evt){
         usuario.appendChild(telUsuario);
         usuario.appendChild(correoUsuario);
         usuario.appendChild(perfilUsuario);
+        usuario.appendChild(tdlink).appendChild(link);
         otroUser = document.getElementById("tablaUsuarios").appendChild(usuario);       
     }
 }
